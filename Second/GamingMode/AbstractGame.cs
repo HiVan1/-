@@ -1,20 +1,18 @@
 namespace Game{
     public abstract class AbstractGame{
         public int CurrentRating = 50;
-        public int GamesCount = 0;
         public int point = 0;
         public Opponent opponent = new Opponent();
         public Random random = new Random();
 
         public void logicGame(){
-            GamesCount++;
 
             string[] opponentSetting = chooseOpponent();
             point = Int32.Parse(opponentSetting[1]);
             
             bool win = Convert.ToBoolean(gameProcess(Int32.Parse(opponentSetting[0].Split(" ")[0]), Int32.Parse(opponentSetting[0].Split(" ")[2])));
             System.Console.WriteLine("CurrentRating = " + CurrentRating);
-            System.Console.WriteLine("GamesCount = " + GamesCount);
+
         }
 
         public string[] chooseOpponent(){
