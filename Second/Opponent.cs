@@ -28,11 +28,11 @@ namespace Game{
         Random random = new Random();
         public Opponent(){
             opponentName = new Dictionary<string, int>();
-            opponentName.Add("1-10", 20);
-            opponentName.Add("1-25", 30);
-            opponentName.Add("1-50", 40);
-            opponentName.Add("1-100", 50);
-            opponentName.Add("1-500", 300);
+            opponentName.Add("1 - 10", 20);
+            opponentName.Add("1 - 25", 30);
+            opponentName.Add("1 - 50", 40);
+            opponentName.Add("1 - 100", 50);
+            opponentName.Add("1 - 500", 300);
         }
 
         public IDictionary<string, int> getOpponentList(){

@@ -4,35 +4,34 @@ namespace Game{
     public class TrainingGame{
 
         public int CurrentRating = 50;
-        public int GamesCount;
+        public int GamesCount = 0;
         public int indexGame = 0;
-        Opponent opponent = new Opponent();
-        Random random = new Random();
-        History history = new History();
+        public Opponent opponent = new Opponent();
+        public Random random = new Random();
 
         public void logicGame(){
             GamesCount++;
+
+            string[] opponentSetting = chooseOpponent();
+            int point = Int32.Parse(opponentSetting[1]);
+            
+            bool win = Convert.ToBoolean(gameProcess(Int32.Parse(opponentSetting[0].Split(" ")[0]), Int32.Parse(opponentSetting[0].Split(" ")[2])));
+
+        }
+
+        public string[] chooseOpponent(){
+            string[] result = new string[2];
             opponent.printListOpponent();
 
             System.Console.Write("Choose an opponent: ");
             int indexOpponent = Convert.ToInt32(Console.ReadLine()); 
-            string nameOpponent = opponent.getOpponentList().ElementAt(indexOpponent-1).Key;
-            int point = opponent.getOpponentList().ElementAt(indexOpponent-1).Value;
-        
-            bool win = gameProcess(Int32.Parse(Convert.ToString(nameOpponent[0])), Int32.Parse(Convert.ToString(nameOpponent[2])));
+            result[0] = opponent.getOpponentList().ElementAt(indexOpponent-1).Key;
+            result[1] = Convert.ToString(opponent.getOpponentList().ElementAt(indexOpponent-1).Value);
 
-            history.history.Add(GamesCount);
-            history.history.Add(nameOpponent);
-            history.history.Add(point);
-            history.history.Add("Training");
-            if (win){
-                history.history.Add("Win!");
-            }else{
-                history.history.Add("Lost");
-            }
+            return result;
         }
 
-        public bool gameProcess(int firstNumber, int lastnumber){
+        public int gameProcess(int firstNumber, int lastnumber){
             System.Console.WriteLine("Guess what number I guessed? -_-\n[" + firstNumber + " - " + lastnumber + "]");
             int guessNumber = random.Next(firstNumber, lastnumber+1);
             for (int i = 0; i < 3; i++){
@@ -40,11 +39,11 @@ namespace Game{
                 int input = Convert.ToInt32(Console.ReadLine());
                 if (input == guessNumber){
                     printWinLostMassage(true);
-                    return true;
+                    return 1;
                 }
             }
             printWinLostMassage(false);
-            return false;
+            return 0;
         }
 
         // private int StartRandom(string name){
