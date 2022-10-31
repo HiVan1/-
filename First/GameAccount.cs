@@ -6,17 +6,16 @@ namespace Game{
         public int CurrentRating = 50;
         public int GamesCount;
         public int indexGame = 0;
-        Opponent opponent;
-        Random random;
-        ArrayList history;
+        private Opponent opponent;
+        private Random random;
+        private List<string> history;
         
         public GameAccount(string UserName){
             this.UserName = UserName;
             System.Console.WriteLine("Hello, " + UserName);
             opponent = new Opponent();
             random = new Random();
-            // {"INDEX", "OPPONENT", "WIN/LOST", "POINT", "POINT AFTER"}
-            history = new ArrayList();
+            history = new List<string>();
             MenuGame();
         }
 
@@ -59,24 +58,29 @@ namespace Game{
             int indexOpponent = Convert.ToInt32(Console.ReadLine()); 
             bool win = Convert.ToBoolean(random.Next(0, 2));
             printWinLostMassage(win);
+
             if (win){
-                history.Add(GamesCount);
+                history.Add(Convert.ToString(GamesCount));
                 string name = opponent.getOpponentList().ElementAt(indexOpponent-1).Key;
                 history.Add(name);
                 history.Add("Win");
                 int point = opponent.getOpponentList().ElementAt(indexOpponent-1).Value;
-                history.Add(point);
+                history.Add(Convert.ToString(point));
                 WinGame(name, point);
                 CurrentRating += point;
             }else{
-                history.Add(GamesCount);
+                history.Add(Convert.ToString(GamesCount));
                 string name = opponent.getOpponentList().ElementAt(indexOpponent-1).Key;
                 history.Add(name);
                 history.Add("Lost");
                 int point = opponent.getOpponentList().ElementAt(indexOpponent-1).Value;
-                history.Add(point);
+                history.Add(Convert.ToString(point));
                 LoseGame(name, point);
-                CurrentRating -= point;
+                if ((CurrentRating - point) < 0){
+                    CurrentRating = 0;
+                }else{
+                    CurrentRating -= point;
+                }
             }
         }
 
