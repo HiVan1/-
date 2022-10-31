@@ -1,40 +1,36 @@
 using System.Collections;
 
 namespace Game{
-    public class CompetitionGame{
+    public class CompetitionGame : AbstractGame{
 
-        public int CurrentRating = 50;
-        public int GamesCount = 0;
-        public int indexGame = 0;
-        public Opponent opponent = new Opponent();
-        public Random random = new Random();
+        // public int CurrentRating = 50;
+        // public int GamesCount = 0;
+        // public int indexGame = 0;
+        // public Opponent opponent = new Opponent();
+        // public Random random = new Random();
 
-        public void logicGame(){
-            GamesCount++;
+        // public void logicGame(){
+        //     GamesCount++;
 
-            string[] opponentSetting = chooseOpponent();
-            int point = Int32.Parse(opponentSetting[1]);
+        //     string[] opponentSetting = chooseOpponent();
+        //     int point = Int32.Parse(opponentSetting[1]);
             
-            int win = gameProcess(Int32.Parse(opponentSetting[0].Split(" ")[0]), Int32.Parse(opponentSetting[0].Split(" ")[2]));
+        //     bool win = Convert.ToBoolean(gameProcess(Int32.Parse(opponentSetting[0].Split(" ")[0]), Int32.Parse(opponentSetting[0].Split(" ")[2])));            
+        // }
 
-            System.Console.WriteLine("You win " + point * win);
-            
-            
-        }
+        // public string[] chooseOpponent(){
+        //     string[] result = new string[2];
+        //     opponent.printListOpponent();
 
-        public string[] chooseOpponent(){
-            string[] result = new string[2];
-            opponent.printListOpponent();
+        //     System.Console.Write("Choose an opponent: ");
+        //     int indexOpponent = Convert.ToInt32(Console.ReadLine()); 
+        //     result[0] = opponent.getOpponentList().ElementAt(indexOpponent-1).Key;
+        //     result[1] = Convert.ToString(opponent.getOpponentList().ElementAt(indexOpponent-1).Value);
 
-            System.Console.Write("Choose an opponent: ");
-            int indexOpponent = Convert.ToInt32(Console.ReadLine()); 
-            result[0] = opponent.getOpponentList().ElementAt(indexOpponent-1).Key;
-            result[1] = Convert.ToString(opponent.getOpponentList().ElementAt(indexOpponent-1).Value);
+        //     return result;
+        // }
 
-            return result;
-        }
-
-        public int gameProcess(int firstNumber, int lastnumber){
+        public override int gameProcess(int firstNumber, int lastnumber){
             int result = 1;
             bool stop = true;
             System.Console.WriteLine("Guess what number I guessed? -_-\n[" + firstNumber + " - " + lastnumber + "]");
@@ -49,11 +45,16 @@ namespace Game{
                     printWinLostMassage(true);
                     result++;
                 }else{
+                    CurrentRating += point * result;
                     stop = false;
                 }
             }
-            printWinLostMassage(false);
-            return result;
+            if (result == 1){
+                printWinLostMassage(false);
+                return 0;
+            }else{
+                return 1;
+            }
         }
 
         // private int StartRandom(string name){
@@ -63,15 +64,15 @@ namespace Game{
         //     return Int32.Parse(Convert.ToString(name[2]));
         // }
 
-        private void printWinLostMassage(bool t){
-            string[] massageWin = {" - You are lucky!", " - It wasn't fair!!!", " - You are very strong!!"};
-            string[] massageLost = {" - You are pathetic", " - You tried in vain", " - HA-HA-HA-HA!!  You lose......"};
-            if (t){
-                System.Console.WriteLine(massageWin[random.Next(0, 3)]);
-            }else{
-                System.Console.WriteLine(massageLost[random.Next(0, 3)]);
-            }
-        }
+        // private void printWinLostMassage(bool t){
+        //     string[] massageWin = {" - You are lucky!", " - It wasn't fair!!!", " - You are very strong!!"};
+        //     string[] massageLost = {" - You are pathetic", " - You tried in vain", " - HA-HA-HA-HA!!  You lose......"};
+        //     if (t){
+        //         System.Console.WriteLine(massageWin[random.Next(0, 3)]);
+        //     }else{
+        //         System.Console.WriteLine(massageLost[random.Next(0, 3)]);
+        //     }
+        // }
         
       
 
