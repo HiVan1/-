@@ -5,11 +5,11 @@ namespace Game{
             this.userName = userName;
         }
 
-         public override void WinGame(int point){
-            this.point += point * 2; 
+         public override void WinGame(int Point){
+            this.Point += Point * 2; 
         }
-        public override void LoseGame(int point){
-            this.point -= point;
+        public override void LoseGame(int Point){
+            this.Point -= Point;
         }
 
        

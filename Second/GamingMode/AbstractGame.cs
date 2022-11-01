@@ -1,21 +1,22 @@
 namespace Game{
     public abstract class AbstractGame{
-        public int CurrentRating = 50;
-        public int point = 0;
         public Opponent opponent = new Opponent();
         public Random random = new Random();
 
-        public void logicGame(){
+        // public void logicGame(){
 
-            string[] opponentSetting = chooseOpponent();
-            point = Int32.Parse(opponentSetting[1]);
+        //     string[] opponentSetting = chooseOpponent();
+        //     point = Int32.Parse(opponentSetting[1]);
             
-            bool win = Convert.ToBoolean(gameProcess(Int32.Parse(opponentSetting[0].Split(" ")[0]), Int32.Parse(opponentSetting[0].Split(" ")[2])));
-            System.Console.WriteLine("CurrentRating = " + CurrentRating);
+        //     // bool win = Convert.ToBoolean(gameProcess(Int32.Parse(opponentSetting[0].Split(" ")[0]), Int32.Parse(opponentSetting[0].Split(" ")[2])));
+        //     System.Console.WriteLine("CurrentRating = " + CurrentRating);
 
-        }
+        // }
 
-        public string[] chooseOpponent(){
+        public abstract void gameProcess(Users user1, Users? user2);
+        
+
+         public string[] chooseOpponent(){
             string[] result = new string[2];
             opponent.printListOpponent();
 
@@ -26,8 +27,6 @@ namespace Game{
 
             return result;
         }
-
-        public abstract int gameProcess(int firstNumber, int lastnumber);
 
         public void printWinLostMassage(bool t){
             string[] massageWin = {" - You are lucky!", " - It wasn't fair!!!", " - You are very strong!!"};

@@ -1,80 +1,60 @@
 using System.Collections;
 
 namespace Game{
-    public class CompetitionGame : AbstractGame{
+    public class CompetitionGame : AbstractGame{  
 
-        // public int CurrentRating = 50;
-        // public int GamesCount = 0;
-        // public int indexGame = 0;
-        // public Opponent opponent = new Opponent();
-        // public Random random = new Random();
+        private int coins = 50;     
 
-        // public void logicGame(){
-        //     GamesCount++;
+        public override void gameProcess(Users user1, Users user2){
+            System.Console.WriteLine("First start " + user1.userName);
+            int u1 = partUser(user1);
+            int u2 = partUser(user2);
 
-        //     string[] opponentSetting = chooseOpponent();
-        //     int point = Int32.Parse(opponentSetting[1]);
-            
-        //     bool win = Convert.ToBoolean(gameProcess(Int32.Parse(opponentSetting[0].Split(" ")[0]), Int32.Parse(opponentSetting[0].Split(" ")[2])));            
-        // }
+            System.Console.WriteLine("u1 = {0}\nu2 = {1}\ncoins = {2}", u1, u2, coins);
 
-        // public string[] chooseOpponent(){
-        //     string[] result = new string[2];
-        //     opponent.printListOpponent();
+            if (u1 > u2){
+                System.Console.WriteLine("Win " + user1.userName);
+                user1.WinGame(u1);
+                user2.LoseGame(coins);
+            }else if (u1 < u2){
+                System.Console.WriteLine("Win " + user2.userName);
+                user2.WinGame(u2);
+                user1.LoseGame(coins);
+            }else{
+                System.Console.WriteLine("Draw!");
+            }
+        }
 
-        //     System.Console.Write("Choose an opponent: ");
-        //     int indexOpponent = Convert.ToInt32(Console.ReadLine()); 
-        //     result[0] = opponent.getOpponentList().ElementAt(indexOpponent-1).Key;
-        //     result[1] = Convert.ToString(opponent.getOpponentList().ElementAt(indexOpponent-1).Value);
-
-        //     return result;
-        // }
-
-        public override int gameProcess(int firstNumber, int lastnumber){
+        private int partUser(Users user){
             int result = 1;
             bool stop = true;
-            System.Console.WriteLine("Guess what number I guessed? -_-\n[" + firstNumber + " - " + lastnumber + "]");
-            
+            System.Console.WriteLine("Start " + user.userName + "\nGuess what number I guessed? -_-\n[1 - 10]");
             while (stop){
                
-                int guessNumber = random.Next(firstNumber, lastnumber+1);
-                System.Console.WriteLine("WIN NUMBER TEST OUTPUT " + guessNumber);
+                int guessNumber = random.Next(1, 11);
+                System.Console.WriteLine("Answer = " + guessNumber);
                 System.Console.Write("x"+result+" Input your number: ");
                 int input = Convert.ToInt32(Console.ReadLine());
                 if (input == guessNumber){
                     printWinLostMassage(true);
                     result++;
                 }else{
-                    CurrentRating += point * result;
+                    printWinLostMassage(false);
                     stop = false;
                 }
             }
             if (result == 1){
-                printWinLostMassage(false);
                 return 0;
             }else{
-                return 1;
+                return coins * result;
             }
         }
 
-        // private int StartRandom(string name){
-        //     return Int32.Parse(Convert.ToString(name[0]));
-        // }
-        // private int EndRandom(string name){
-        //     return Int32.Parse(Convert.ToString(name[2]));
-        // }
-
-        // private void printWinLostMassage(bool t){
-        //     string[] massageWin = {" - You are lucky!", " - It wasn't fair!!!", " - You are very strong!!"};
-        //     string[] massageLost = {" - You are pathetic", " - You tried in vain", " - HA-HA-HA-HA!!  You lose......"};
-        //     if (t){
-        //         System.Console.WriteLine(massageWin[random.Next(0, 3)]);
-        //     }else{
-        //         System.Console.WriteLine(massageLost[random.Next(0, 3)]);
-        //     }
-        // }
-        
-      
-
+        private int StartRandom(string name){
+            return Int32.Parse(Convert.ToString(name[0]));
+        }
+        private int EndRandom(string name){
+            return Int32.Parse(Convert.ToString(name[2]));
+        }
     }
 }

@@ -6,11 +6,11 @@ namespace Game{
         }
         
         public override void WinGame(int point){
-            this.point += point;
+            this.Point += point;
         }
 
         public override void LoseGame(int point){
-            this.point -= point;
+            this.Point -= point;
         }
     }
 }
