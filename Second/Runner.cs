@@ -1,19 +1,27 @@
-using System.Collections;
+using Gaming.Games;
+using Gaming.Users;
 
-namespace Game{
-    class Runner{
+namespace Gaming{
+    public class Runner{
         public static void Main(){
-            Menu menu = new Menu();
-            menu.GameEntry();
-            
-            // System.Console.WriteLine("Train=========================");
-            // trainingGame.logicGame();
-            // System.Console.WriteLine("Competition=========================");
-            // competitionGame.logicGame();
-            // System.Console.WriteLine("Fast=========================");
-            // fastGame.logicGame();
+            InitialGame initialGame = new InitialGame();
+            User first = new Defult("Ivan");
+            User secong = new Defult("Goga");
+            User third = new Defult("Typa");
+            initialGame.createTrainignGame(first, secong).gameProcess();
+            initialGame.createTrainignGame(third, secong).gameProcess();
+            initialGame.createTrainignGame(first, third).gameProcess();
+            initialGame.createFastGame(secong, third).gameProcess();
+            initialGame.createFastGame(third, secong).gameProcess();
+            initialGame.createFastGame(third, secong).gameProcess();
+            initialGame.createCompetitionGame(third, secong).gameProcess();
+            initialGame.createCompetitionGame(third, secong).gameProcess();
+            initialGame.createCompetitionGame(third, secong).gameProcess();
+            first.information();
+            secong.information();
+            third.information();
 
-            
         }
+            
     }
 }
