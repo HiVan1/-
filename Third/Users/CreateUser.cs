@@ -1,18 +1,29 @@
+using Shop.DB;
+
 namespace Shop.Userss{
     public class CreateUser{
-        public User createNewDefultUser(string userName){
-            User user = new DefulrUser(userName);
-            user.Email = "kiohi2000@gmail.com";
-            user.Passwd = "1234567890";
+
+        private EmulatorDB DataBaseUser;
+
+        public CreateUser(){
+            DataBaseUser = new EmulatorDB(); 
+        }
+
+        public User createNewDefultUser(string userName, string email, string password){
+            User user = new DefulrUser(userName, email, password);
+            DataBaseUser.AddToDB(user);
             return user;
         }
 
-        public User createNewPremiumUser(string userName){
-            User user = new DefulrUser(userName);
-            user.Email = "izuravlev@gmail.com";
-            user.Passwd = "0987654321";
-            user.Discount = 2;
+        public User createNewPremiumUser(string userName, string email, string password){
+            User user = new PremiumUser(userName, email, password);
+            user.Discount = 5;
+            DataBaseUser.AddToDB(user);
             return user;
+        }
+
+        public bool checkUser(string name, string password){
+            return DataBaseUser.checkUser(name, password);
         }
     }
 }

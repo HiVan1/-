@@ -13,24 +13,46 @@ namespace Shop.Product{
             }
         }
 
-        private IDictionary<string, string> NameSKU = new Dictionary<string, string>();
-
-        //Method return SKU(Acticle)
-        public string getSKUname(string name){
-            return null;
+        private string name;
+        public string Name{
+            get{return name;}
+            set{name = value;}
         }
 
-        //Method return Name
-        public string getNameSKU(string SKU){
-            return null;
+        private string sku;
+        public string SKU{
+            get{return sku;}
+            set{sku = value; }
         }
 
-        public void setNameSKU(string name, string SKU){
-            NameSKU.Add(name, SKU);
+        // private IDictionary<string, string> NameSKU = new Dictionary<string, string>();
+
+        // //Method return SKU(Acticle)
+        // public string getSKUname(string name){
+        //     return NameSKU.ElementAt(1).Value;
+        // }
+
+        // //Method return Name
+        // public string getNameSKU(string SKU){
+        //     return NameSKU.ElementAt(1).Key;
+        // }
+
+        // public void setNameSKU(string name, string SKU){
+        //     NameSKU.Add(name, SKU);
+        // }
+
+        // public void remNameSKU(string name){
+        //     NameSKU.Remove(name);
+        // }
+
+        public void AddProduct(string name, string sku, float cost){
+            
         }
 
-        public void remNameSKU(string name){
-            NameSKU.Remove(name);
+        public void ProductInformation(){
+            System.Console.WriteLine("Name: ");
+            System.Console.WriteLine("SKU: " );
+            System.Console.WriteLine("Cost: " + Cost);
         }
 
     }

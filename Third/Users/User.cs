@@ -1,8 +1,8 @@
 namespace Shop.Userss{
     public abstract class User{
         public Random random = new Random();
-        private double money;
-        public double Money{
+        private float money;
+        public float Money{
             get {return money;}
             set{money = value;}
         }
@@ -39,13 +39,15 @@ namespace Shop.Userss{
             set{discount = value;}
         }
 
-        public User(string userName){
+        public User(string userName, string email, string password){
             UserName = userName;
+            Email = email;
+            Passwd = password;
         }
 
         public void UserInformation(){
             System.Console.WriteLine();
-            System.Console.WriteLine("Name: " + userName);
+            System.Console.WriteLine("Name: " + UserName);
             System.Console.WriteLine("Account: " + Money);
             System.Console.WriteLine("Email: " + Email);
             System.Console.WriteLine("Your password: " + Passwd);
