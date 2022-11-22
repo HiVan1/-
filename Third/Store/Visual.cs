@@ -6,12 +6,17 @@ using Shop.Store;
 namespace Shop.Store{
     public class Visual{
         private CreateUser createUser;
-        private ProductA product;
+        private CreateProduct createProduct;
+
+        private EmulatorDB DataBaseUser;
+        private EmulatorDBhistory DataBaseHispory;
+        private EmulatorDBproduct DataBaseProduct;
         
 
         public Visual(){
+            
             createUser = new CreateUser();
-            product = new ProductA();
+            createProduct = new CreateProduct();
         }
         public void startShop(){
             System.Console.WriteLine("\n========== SING UP ==========");
@@ -36,8 +41,17 @@ namespace Shop.Store{
             usr.UserInformation();
 
             System.Console.WriteLine("\n========== ADD PRODUCT ==========");
-
             
+            var test = createProduct.CreateProductX("name1", "#1234", 13.2f, "type1");
+            createProduct.CreateProductX("name2", "0234", 17.32f, "type2");
+            createProduct.CreateProductX("name3", "#1434", 1564.2f, "type3");
+            createProduct.CreateProductX("name4", "#1634", 0.55f, "type4");
+
+            createProduct.ShowProduct();
+
+
+            System.Console.WriteLine("\n========== {0} buy {1} ==========", usr.UserName, test.Cost);
+
         }
 
     }

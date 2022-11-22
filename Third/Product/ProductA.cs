@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace Shop.Product{
     public class ProductA{
 
@@ -22,37 +24,32 @@ namespace Shop.Product{
         private string sku;
         public string SKU{
             get{return sku;}
-            set{sku = value; }
+            set{
+                string pattern = @"^#[1-9]{4}$";
+                if (Regex.IsMatch(value, pattern)){
+                    sku = value;
+                }else{
+                    System.Console.WriteLine("Error. Incorrect input SKU");
+                    sku = "error";
+                }
+            }
         }
 
-        // private IDictionary<string, string> NameSKU = new Dictionary<string, string>();
+        private string type;
+        public string Type{
+            get{return type;}
+            set{type = value;}
+        }
 
-        // //Method return SKU(Acticle)
-        // public string getSKUname(string name){
-        //     return NameSKU.ElementAt(1).Value;
-        // }
-
-        // //Method return Name
-        // public string getNameSKU(string SKU){
-        //     return NameSKU.ElementAt(1).Key;
-        // }
-
-        // public void setNameSKU(string name, string SKU){
-        //     NameSKU.Add(name, SKU);
-        // }
-
-        // public void remNameSKU(string name){
-        //     NameSKU.Remove(name);
-        // }
-
-        public void AddProduct(string name, string sku, float cost){
-            
+        public ProductA(string name, string sku, float cost, string type){
+            Name = name;
+            SKU = sku;
+            Cost = cost;
+            Type = type;
         }
 
         public void ProductInformation(){
-            System.Console.WriteLine("Name: ");
-            System.Console.WriteLine("SKU: " );
-            System.Console.WriteLine("Cost: " + Cost);
+            
         }
 
     }

@@ -5,8 +5,8 @@ namespace Shop.Userss{
 
         private EmulatorDB DataBaseUser;
 
-        public CreateUser(){
-            DataBaseUser = new EmulatorDB(); 
+        public CreateUser(EmulatorDB DataBase){
+            DataBaseUser = DataBase; 
         }
 
         public User createNewDefultUser(string userName, string email, string password){
