@@ -14,5 +14,7 @@ namespace Shop.Userss{
         public override void UserRefill(float sum){
             Money += sum;
         }
+
+        
     }
 }

@@ -2,14 +2,14 @@ using Shop.Userss;
 
 namespace Shop.DB{
     public class EmulatorDB{
-        private List<User>? DataBase;
+        private List<User> DataBase;
 
         public EmulatorDB(){
             DataBase = new List<User>();
         }
 
         public void AddToDB(User user){
-            DataBase?.Add(user);
+            DataBase.Add(user);
         }
 
         public bool checkUser(string name, string password){

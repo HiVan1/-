@@ -7,6 +7,7 @@ namespace Shop.Store{
     public class Visual{
         private CreateUser createUser;
         private ProductA product;
+        
 
         public Visual(){
             createUser = new CreateUser();
@@ -33,6 +34,10 @@ namespace Shop.Store{
             System.Console.WriteLine("Input how much are you ready to spend: 10");
             usr.UserBuy(10);
             usr.UserInformation();
+
+            System.Console.WriteLine("\n========== ADD PRODUCT ==========");
+
+            
         }
 
     }
