@@ -13,11 +13,7 @@ namespace Shop.DB{
         }
 
         public bool checkUser(string name, string password){
-            foreach (var x in DataBase!){
-                // System.Console.WriteLine("name = " + name);
-                // System.Console.WriteLine("DB Name = " + x.UserName);
-                // System.Console.WriteLine("password = " + password);
-                // System.Console.WriteLine("DB Password = " + x.Passwd);
+            foreach (var x in DataBase){
                 if (x.UserName.Equals(name) && x.Passwd == password){
                     return true;
                 }
