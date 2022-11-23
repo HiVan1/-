@@ -4,18 +4,22 @@ using Shop.DB;
 
 namespace Shop.PaymentSystem{
     public class PaySystem{
-        private EmulatorDBhistory history;
-        private EmulatorDBproduct productDB;
 
-        public PaySystem(EmulatorDBproduct product){
-            history = new EmulatorDBhistory();
-            productDB = product;
+        public void Payment(User user, string name){
+            try{
+                var product = EmulatorDBproduct.SearchByName(name);
+                user.UserBuy(product.Cost);
+                EmulatorDBhistory.AddHistory(user, product);
+                EmulatorDBproduct.RemoveFromDB(product);
+            }catch (Exception e){
+                System.Console.WriteLine("@!!!!! Not found product !!!!!@");
+            }
+            
         }
 
-        public void Payment(User user, ProductA product){
-            history.AddHistory(user, product);
-            user.UserBuy(product.Cost);
-            productDB.RemoveFromDB(product);
+        public void Refill(User user, float sum){
+            user.UserRefill(sum);
+            EmulatorDBhistoryRefill.AddHistory(user, sum);
         }
     }
 }

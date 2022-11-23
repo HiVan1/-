@@ -1,24 +1,20 @@
 using Shop.Userss;
 
 namespace Shop.DB{
-    public class EmulatorDB{
-        private List<User> DataBase;
+    public static class EmulatorDB{
+        private static List<User> DataBase = new List<User>();
 
-        public EmulatorDB(){
-            DataBase = new List<User>();
-        }
-
-        public void AddToDB(User user){
+        public static void AddToDB(User user){
             DataBase.Add(user);
         }
 
-        public bool checkUser(string name, string password){
+        public static User checkUser(string email, string password){
             foreach (var x in DataBase){
-                if (x.UserName.Equals(name) && x.Passwd == password){
-                    return true;
+                if (x.Email.Equals(email) && x.Passwd == password){
+                    return x;
                 }
             }
-            return false;
+            return null;
         }
     }
 }

@@ -3,27 +3,23 @@ using Shop.DB;
 namespace Shop.Userss{
     public class CreateUser{
 
-        private EmulatorDB DataBaseUser;
 
-        public CreateUser(EmulatorDB DataBase){
-            DataBaseUser = DataBase; 
+        public CreateUser(){
         }
 
-        public User createNewDefultUser(string userName, string email, string password){
+        public void createNewDefultUser(string userName, string email, string password){
             User user = new DefulrUser(userName, email, password);
-            DataBaseUser.AddToDB(user);
-            return user;
+            EmulatorDB.AddToDB(user);
         }
 
-        public User createNewPremiumUser(string userName, string email, string password){
+        public void createNewPremiumUser(string userName, string email, string password){
             User user = new PremiumUser(userName, email, password);
             user.Discount = 5;
-            DataBaseUser.AddToDB(user);
-            return user;
+            EmulatorDB.AddToDB(user);
         }
 
-        public bool checkUser(string name, string password){
-            return DataBaseUser.checkUser(name, password);
+        public User checkUser(string email, string password){
+            return EmulatorDB.checkUser(email, password);
         }
     }
 }

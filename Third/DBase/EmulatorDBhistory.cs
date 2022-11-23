@@ -3,18 +3,14 @@ using Shop.Userss;
 using Shop.Product;
 
 namespace Shop.DB{
-    public class EmulatorDBhistory{
-        private IDictionary<User, ProductA> DataBase;
+    public static class EmulatorDBhistory{
+        private static IDictionary<User, ProductA> DataBase = new Dictionary<User, ProductA>();
 
-        public EmulatorDBhistory(){
-            DataBase = new Dictionary<User, ProductA>();
-        }
-
-        public void AddHistory(User user, ProductA product){
+        public static void AddHistory(User user, ProductA product){
             DataBase.Add(user, product);
         }
 
-        public void ShowPurchase(User user){
+        public static void ShowPurchase(User user){
             System.Console.WriteLine("======= Purchase History {0} =======", user.UserName);
             for (int i = 0; i < DataBase.Count; i++){
                 if (DataBase.ElementAt(i).Key.UserName.Equals(user.UserName)){
