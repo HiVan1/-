@@ -1,5 +1,7 @@
 using Shop.Userss;
-
+/*
+Класс для хранения истории пополнений
+*/
 namespace Shop.DB{
     public static class EmulatorDBhistoryRefill{
         private static IDictionary<User, float> DataBase = new Dictionary<User, float>();

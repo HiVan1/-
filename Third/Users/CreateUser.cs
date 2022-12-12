@@ -9,6 +9,7 @@ namespace Shop.Userss{
 
         public void createNewDefultUser(string userName, string email, string password){
             User user = new DefulrUser(userName, email, password);
+            user.Discount = 0;
             EmulatorDB.AddToDB(user);
         }
 

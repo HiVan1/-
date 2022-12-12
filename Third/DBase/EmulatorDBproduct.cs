@@ -1,5 +1,7 @@
 using Shop.Product;
-
+/*
+Класс для базы данных продуктов
+*/
 namespace Shop.DB{
     public static class EmulatorDBproduct{
         private static List<ProductA> DataBase = new List<ProductA>();
@@ -15,7 +17,6 @@ namespace Shop.DB{
         public static ProductA SearchByName(string name){
             foreach(var x in DataBase){
                 if (x.Name.Equals(name)){
-                    System.Console.WriteLine("Test input by SearchByName: " + x.Name);
                     return x;
                 }
             }

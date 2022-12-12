@@ -3,7 +3,7 @@ namespace Shop.Userss{
         public DefulrUser(string userName, string email, string password) : base(userName, email, password){ }
 
         public override void UserBuy(float price){
-            float discountPrice = price - price/100*Discount;
+            float discountPrice = price - price / 100 * Discount;
             if ((Money - discountPrice) >= 0){
                 Money -= discountPrice;
             }else{

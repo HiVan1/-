@@ -4,7 +4,7 @@ namespace Shop.Product{
     public class ProductA{
 
         private float cost;
-        public float Cost{
+        public float Cost{ // Стоимость продукта
             get{return cost;}
             set{
                 if (value < 0){
@@ -16,13 +16,13 @@ namespace Shop.Product{
         }
 
         private string name;
-        public string Name{
+        public string Name{ // Имя продукта 
             get{return name;}
             set{name = value;}
         }
 
         private string sku;
-        public string SKU{
+        public string SKU{ // Код продукта
             get{return sku;}
             set{
                 string pattern = @"^#[1-9]{4}$";
@@ -30,13 +30,13 @@ namespace Shop.Product{
                     sku = value;
                 }else{
                     System.Console.WriteLine("Error. Incorrect input SKU");
-                    sku = "error";
+                    sku = "";
                 }
             }
         }
 
         private string type;
-        public string Type{
+        public string Type{ // Тип продукта. (На пример: еда, алкоголь, бытовая техника и тд)
             get{return type;}
             set{type = value;}
         }

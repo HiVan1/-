@@ -20,22 +20,26 @@ namespace Shop.Store{
             paymentSystem = new PaySystem();
         }
         public void startShop(){
+            // Регистрация пользователя
             System.Console.WriteLine("\n========== SING UP ==========");
             System.Console.WriteLine("Input your name: Ivan");
             System.Console.WriteLine("Input your email: kiohi200@gmail.com");
             System.Console.WriteLine("Input your password: 1234567890");
             createUser.createNewPremiumUser("Ivan", "kiohi2000@gmail.com", "1234567890");
 
+            // Авторизация пользователя
             System.Console.WriteLine("\n========== SING IN ==========");
             System.Console.WriteLine("Input your email: kiohi2000@gmail.com");
             System.Console.WriteLine("Input your password: 1234567890");
-            User usr;
+            User usr; // Проверка на ввод пароля и логина
             if ((usr = createUser.checkUser("kiohi2000@gmail.com", "1234567890")) != null){
                 System.Console.WriteLine("Welocome");
+                // Пользователя вошел в свой аккаут и хочет пополнить свой счет на 1579$
                 System.Console.WriteLine("\n========== REFILL ==========");
                 System.Console.WriteLine("Input how much do you want to refill: 1579");
                 paymentSystem.Refill(usr, 1579);
 
+                // Эмулирование добавление продуктов
                 System.Console.WriteLine("\n========== ADD PRODUCT ==========");
                 
                 createProduct.CreateProductX("name1", "#1234", 10f, "type1");
@@ -45,13 +49,14 @@ namespace Shop.Store{
 
                 createProduct.ShowProduct();
 
+                // Покупка пользователя usr продукта name1
                 System.Console.WriteLine("\n========== BUY ==========");
                 System.Console.WriteLine("Input what are you wanna buy: name1");
                 paymentSystem.Payment(usr, "name1");
                 usr.UserInformation();
                 createProduct.ShowProduct();
 
-            }else{
+            }else{ // Если пароль или логин были введены не верно выводиться сообщение
                 System.Console.WriteLine("Go away robber!!!");
             }
 

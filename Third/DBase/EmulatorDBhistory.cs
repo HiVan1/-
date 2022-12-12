@@ -1,7 +1,8 @@
-using Shop.PaymentSystem;
 using Shop.Userss;
 using Shop.Product;
-
+/*
+Класс для хранения истории покупок
+*/
 namespace Shop.DB{
     public static class EmulatorDBhistory{
         private static IDictionary<User, ProductA> DataBase = new Dictionary<User, ProductA>();
