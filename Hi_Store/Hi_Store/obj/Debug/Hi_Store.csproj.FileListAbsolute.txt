@@ -1,0 +1,10 @@
+H:\Program\сSharp\Hi_Store\Hi_Store\obj\Debug\Hi_Store.csproj.AssemblyReference.cache
+H:\Program\сSharp\Hi_Store\Hi_Store\obj\Debug\Hi_Store.csproj.SuggestedBindingRedirects.cache
+H:\Program\сSharp\Hi_Store\Hi_Store\obj\Debug\Hi_Store.csproj.CoreCompileInputs.cache
+H:\Program\сSharp\Hi_Store\Hi_Store\bin\Debug\StoreDataBase.mdf
+H:\Program\сSharp\Hi_Store\Hi_Store\bin\Debug\StoreDataBase_log.ldf
+H:\Program\сSharp\Hi_Store\Hi_Store\bin\Debug\Hi_Store.exe.config
+H:\Program\сSharp\Hi_Store\Hi_Store\bin\Debug\Hi_Store.exe
+H:\Program\сSharp\Hi_Store\Hi_Store\bin\Debug\Hi_Store.pdb
+H:\Program\сSharp\Hi_Store\Hi_Store\obj\Debug\Hi_Store.exe
+H:\Program\сSharp\Hi_Store\Hi_Store\obj\Debug\Hi_Store.pdb
