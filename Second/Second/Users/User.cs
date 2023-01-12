@@ -21,7 +21,7 @@ namespace Gaming.Users{
         public void information(){
             System.Console.WriteLine("{0,-10} {1,-20} {2,-20} {3, -15} {4, -10}\n", "ID", "Winner - Point", "Looser - Point", "Type", "Rating");
             foreach(Game g in history){
-                System.Console.WriteLine("{0,-10} {1,-20} {2,-20} {3, -15} {4, -10}\n", ID++, g.Player1.outputName() +" "+ g.Player1.Rating, g.Player2.outputName() +" "+ g.Player2.Rating, g.Type(), g.Coins);
+                System.Console.WriteLine("{0,-10} {1,-20} {2,-20} {3, -15} {4, -10}\n", ID++, g.Player1.outputName() +" "+ g.Player1.Rating, g.Player2.outputName() +" "+ g.Player2.Rating, g.type, g.Coins);
             }
         }
 

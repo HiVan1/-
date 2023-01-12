@@ -2,20 +2,15 @@
 using System.Text;
 using System.Security.Cryptography;
 
-
 namespace Hi_Store.Hash {
     public static class HashPassword {
-        public static bool CheckHashPassword (string passwordInput, string password) {
-            /*Console.WriteLine("passwordInut: " + passwordInput);
-            Console.WriteLine("password: " + password);*/
+        public static bool CheckHashPassword (string passwordInput, string password) {           
             if (passwordInput == password) {
-                Console.WriteLine("Password is correct!");
                 return true;
             }
-            else {
-                Console.WriteLine("Password is uncorrect 0_0");
-                return false;
-            }
+
+            Console.WriteLine("$ Пароль введен не коректно!");
+            return false;
         }
 
         public static string GetHashPassword (string password) {

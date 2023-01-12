@@ -14,12 +14,19 @@ namespace Gaming.Games{
             }
         }
 
-        public Game(User Player1, User Player2){
-            this.Player1 = Player1;
-            this.Player2 = Player2;
+        public TypeGame type { get; }
+
+        public enum TypeGame {
+            Competition,
+            Fast,
+            Training
         }
 
-        public abstract string Type();
+        public Game(User Player1, User Player2, TypeGame type){
+            this.Player1 = Player1;
+            this.Player2 = Player2;
+            this.type = type;
+        }
 
         public abstract void gameProcess();
     }

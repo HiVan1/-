@@ -1,4 +1,4 @@
-﻿using System.Security.Policy;
+﻿using System;
 
 namespace Hi_Store.Userss {
     public class PremiumUser : User {
@@ -9,9 +9,9 @@ namespace Hi_Store.Userss {
             if ((Money - discountPrice) >= 0) {
                 Money -= discountPrice;
             }
-            else {
-                System.Console.WriteLine("You don't have enough money to buy");
-            }
+            else 
+                Console.WriteLine("$ Недостатотчно денег :(");
+            
             return discountPrice;
         }
 

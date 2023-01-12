@@ -43,7 +43,9 @@ namespace Hi_Store.Product {
             return productTable.GetProductCost(sku);
         }
 
-        public void BuyProduct (string sku, int number) {
+
+        /* ++++++++++++++++++++++ УДАЛИТЬ +++++++++++++++++++++++++++++++++++ 
+         * public void BuyProduct (string sku, int number) {
             if (productTable.isHere(sku)) {
                 int amount = productTable.GetProductAmount(sku);
                 int x = amount - number;
@@ -54,6 +56,6 @@ namespace Hi_Store.Product {
                     
                 }
             }
-        }
+        }*/
     }
 }

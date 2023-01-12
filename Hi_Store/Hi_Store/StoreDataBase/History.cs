@@ -1,7 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Configuration;
 using System;
-using Microsoft.SqlServer.Server;
 
 namespace Hi_Store.StoreDataBase {
     public class History {
@@ -20,19 +19,17 @@ namespace Hi_Store.StoreDataBase {
 
         public void AddHistoryToDB (string userMail, string productName, string cost, string amount) {
             /*Close Data Reader*/
-            if (sqlDataReader != null)
-                sqlDataReader.Close();
+            if (sqlDataReader != null) sqlDataReader.Close();
 
             command = "insert into History (User_name, Product_name, Cost, Amount, Date) values ('" + userMail + "', '" + productName + "', '" + cost + "', '"+ amount + "', '"+DateTime.Now+"')";
             sqlCommand = new SqlCommand(command, sqlConnection);
-            /*sqlCommand.ExecuteNonQuery();*/
-            Console.WriteLine("> Покупка добавлена в историю " + sqlCommand.ExecuteNonQuery());
+            sqlCommand.ExecuteNonQuery();
+            Console.WriteLine("$ Покупка добавлена в историю");
         }
 
         public void SelectHistory (string mail) {
             /*Close Data Reader*/
-            if (sqlDataReader != null)
-                sqlDataReader.Close();
+            if (sqlDataReader != null) sqlDataReader.Close();
 
             var command = "select * from History where User_name='" + mail + "'";
             sqlCommand = new SqlCommand(command, sqlConnection);
@@ -46,6 +43,7 @@ namespace Hi_Store.StoreDataBase {
                 Console.WriteLine($"Дата покупки: {sqlDataReader["Date"]}");
                 Console.WriteLine(new string('=',100));
             }
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         }
 
         public void ConnectionClose () {

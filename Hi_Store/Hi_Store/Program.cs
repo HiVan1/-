@@ -9,27 +9,23 @@ namespace Hi_Store {
             Visual visual = new Visual();
             visual.startShop();   // Запускаем магазин
 
-            string input = Console.ReadLine();
-            string input1 = "123456789";
-            string input2 = "123sdfg%^!@(^";
-            Console.WriteLine(RegexForPassword(input));
-            Console.WriteLine(RegexForPassword(input1));
-            Console.WriteLine(RegexForPassword(input2));
 
-            /* string inputPass = "02062003";
-             string inputPass1 = "02062003";
 
-             System.Console.WriteLine(HashPassword.GetHashPassword(inputPass));
-             System.Console.WriteLine(HashPassword.CheckHashPassword(HashPassword.GetHashPassword(inputPass1), HashPassword.GetHashPassword(inputPass)));*/
+
         }
 
-        public static string RegexForPassword (string pass) {
-            Regex validateEmailRegex = new Regex("^\\S{8,20}$");
-            if (validateEmailRegex.IsMatch(pass)) {
-                return pass;
+        public static void test (string pass) {
+            string test1 = Console.ReadLine ();
+            int count = 0;
+            if (test1 == pass) {
+                Console.WriteLine("ok");
             }
-            else
-                return "error";
+            else {
+                count++;
+                if (count < 3) {
+                    test(pass);
+                }
+            }
         }
     }
 }

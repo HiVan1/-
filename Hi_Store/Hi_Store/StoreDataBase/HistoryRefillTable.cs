@@ -21,19 +21,17 @@ namespace Hi_Store.StoreDataBase {
 
         public void AddRefillToDB (string userMail, string refill) {
             /*Close Data Reader*/
-            if (sqlDataReader != null)
-                sqlDataReader.Close();
+            if (sqlDataReader != null) sqlDataReader.Close();
 
             command = "insert into History_Refill (User_Mail, Refill, Date) values ('" + userMail + "', '" + refill + "', '" + DateTime.Now + "')";
             sqlCommand = new SqlCommand(command, sqlConnection);
             sqlCommand.ExecuteNonQuery();
-            Console.WriteLine("> Платеж добавлен в истоию");
+            Console.WriteLine("$ Платеж добавлен в истоию");
         }
 
         public void SelectHistory(string mail) {
             /*Close Data Reader*/
-            if (sqlDataReader != null)
-                sqlDataReader.Close();
+            if (sqlDataReader != null) sqlDataReader.Close();
 
             var command = "select * from History_Refill where User_mail='" + mail +"'";
             sqlCommand = new SqlCommand(command, sqlConnection);
@@ -44,6 +42,7 @@ namespace Hi_Store.StoreDataBase {
             while (sqlDataReader.Read()) {
                 Console.WriteLine($"{sqlDataReader["Date"]}  {sqlDataReader["Refill"]}");
             }
+            Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         }    
         
         public void ConnectionClose () {
