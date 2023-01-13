@@ -79,7 +79,6 @@ namespace Hi_Store.Userss {
             Console.WriteLine("++++++++++++++++++++++++++++++++++++++");
             Console.WriteLine("$    Имя: " + UserName);
             Console.WriteLine("$    Почта: " + Email);
-            Console.WriteLine("$    Пароль: " + Passwd);
             Console.WriteLine("$    Счёт: " + Money);                        
             Console.WriteLine("$    Скидка: " + Discount);
             Console.WriteLine("$    Текущий статус: " + Status);

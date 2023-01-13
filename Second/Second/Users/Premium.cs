@@ -15,7 +15,7 @@ namespace Gaming.Users{
         }
 
         public override string outputName(){
-            return "Pre. " +userName;
+            return "Pre. " +UserName;
         }
     }
 }

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\Program\\сSharp\\Second\\Second\\Second.csproj",
+      "projectUniqueName": "H:\\Program\\cSharp\\Second\\Second\\Second.csproj",
       "projectName": "Second",
-      "projectPath": "H:\\Program\\сSharp\\Second\\Second\\Second.csproj",
+      "projectPath": "H:\\Program\\cSharp\\Second\\Second\\Second.csproj",
       "packagesPath": "C:\\Users\\38095\\.nuget\\packages\\",
-      "outputPath": "H:\\Program\\сSharp\\Second\\Second\\obj\\",
+      "outputPath": "H:\\Program\\cSharp\\Second\\Second\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

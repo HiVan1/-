@@ -5,7 +5,10 @@ namespace Gaming.Users{
 
         protected List<Game> history = new List<Game>();
         private int ID = 2057;
-        public string userName;
+
+        public string UserName { get; protected set; }
+        
+
         private int rating;
         public int Rating{
             get{return rating;}
@@ -15,7 +18,7 @@ namespace Gaming.Users{
             }
         }
         public User(string userName){
-            this.userName = userName;
+            this.UserName = userName;
         }
 
         public void information(){
